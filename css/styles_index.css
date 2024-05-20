@@ -57,7 +57,7 @@ body {
 .articulo{
     display: flex;
     padding: 10px;
-    height: 150px;
+    height: auto;
     overflow: hidden;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 14px;
@@ -87,3 +87,23 @@ body {
     font-size: 22px;
     }
  
+    /* Estilos para dispositivos con pantalla grande (PC) */
+@media (min-width: 1200px) {
+    .iconos a {
+        font-size: 24px;
+    }
+}
+
+/* Estilos para dispositivos con pantalla mediana (Tablet) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .iconos a {
+        font-size: 20px;
+    }
+}
+
+/* Estilos para dispositivos con pantalla pequeña (Celular) */
+@media (max-width: 767px) {
+    .iconos a {
+        font-size: 18px;
+    }
+}    
