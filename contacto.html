@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puente del Conocimiento</title>
+    <link rel="stylesheet" href="css/styles_index.css">    
+    <link rel="stylesheet" href="css/styles_contacto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body class="contendor">
+    <!-- Contendor principal -->
+    <div>
+        <!-- Encabezado -->
+        <header class="encabezado">
+            <div class="encabezado-izq">
+                <img src="img/logo 140.png" alt="Logo del colegio">
+            </div>
+            <div class="encabezado-centro">
+            <h1>
+                Escuela Normal N° 13 <br>
+                Puente del Conocimiento
+                
+            </h1>
+                
+            </div>
+            <div class="encabezado-der">
+                <img src="img/logo agencia 120.png" alt="Logo de codo a codo">
+            </div>
+        </header>
+        <!-- Barra de menú -->
+            <nav class="menu">
+                <ul>
+                    <li><a href="institucional.html">INSTITUCIONAL</a></li>;
+                    <li><a href="jardin.html">JARDIN</a> </li>
+                    <li><a href="primario.html">PRIMARIO</a> </li>
+                    <li><a href="secundario.html">SECUNDARIO</a> </li>
+                    <li><a href="idiomas.html">IDIOMAS</a> </li>
+                    <li><a href="deportes.html">DEPORTES</a> </li>
+                    <li><a href="contacto.html">CONTACTO</a> </li>
+                </ul>
+
+            </nav>
+        <!-- Formulario -->
+        <div class="formulario">
+            <form id="contactoForm" class="form" onsubmit="return validateForm()">
+                <h2>Información para contactarnos</h2>
+                <div class="form-group">
+                    <label for="nombre">Nombre y Apellido del solicitante </label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <br>
+                    <label for="email">Correo electrónico </label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="phone" id="telefono" name="Telefono  placeholder="Ingrese aquí su telefono de contacto" required
+                    <br>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="vinculo">Vínculo familiar</label> <br>
+                    <input type="radio" name="vinculo" value="Madre" required>Madre
+                    <input type="radio" name="vinculo" value="Padre">Padre
+                    <input type="radio" name="vinculo" value="Otro">Otro
+                </div>           
+                <div class="form-group">
+                    <br>
+                    <label>Nivel:</label><br>
+                     <input type="radio" name="nivel" value="Jardín" required>Jardín 
+                     <input type="radio" name="nivel" value="Primaria">Primaria
+                     <input type="radio" name="nivel" value="Secundaria"> Secundaria
+                    </required> 
+                    
+                </div>   
+                <br>
+                <div class="form-group">
+                    <label for="nombrealu">Nombre y Apellido del ingresante</label>
+                    <input type="text" id="nombrealu" name="nombrealu" required>
+                </div>
+                <br> 
+                <div>
+                    <label>Género:</label><br>
+                    <input type="radio" name="genero" value="varon" required>Varón
+                    <input type="radio" name="genero" value="Mail">Mujer
+                    <input type="radio" name="genero" value="otro"> Otro
+                </div>
+                <div>
+                    <br>
+                    <label for="fechaNacimiento">Fecha de nacimiento</label><br>
+                    <input type="date" id="fechaNacimiento"required onchange="calcularEdad()">
+                    <br><br>
+                </div>    
+                <div>
+                    <label for="direccion">Direccion:</label><input type="text" name="direccion" required
+                    placeholder="Ingrese su dirección aqui (calle y número)"> <br><br>
+                    <label for="Localidad">Localidad </label><input type="text" name="localidad" value="C.A.B.A."> <br><br>
+                </div>   
+                <div>
+                    <label for="comentarios">Comentarios e inquietudes:</label> <textarea name="comentarios" rows="10" cols="61"></textarea>
+                </div>
+                <br>
+        
+                <button type="submit">Enviar Formulario </button>
+            </form>
+        
+        </div>
+        <!-- Pie de página -->
+
+        <footer class="pie">
+            <div>
+                <p>&copy Equipo N° 15 - Curso 24170 - 2024 
+                </p>
+            </div>
+                                
+            <div class="iconos">
+                <a href="#"><span class="fab fa-instagram" title="Instagram"></span></a>
+                <a href="#"><span class="fab fa-facebook" title="Facebook"></span></a>
+                <a href="#"><span class="fab fa-twitter" title="Twitter"></span></a
+            </div>
+        
+
+        </footer>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
