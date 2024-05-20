@@ -3,16 +3,15 @@ body {
     padding: 0px;
 }
 
-
 .encabezado {   
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color:#080E42
+    color:#080E42;
     background-color: azure;
     padding: 10px;
 } 
-.encabezado {img;
+.encabezado img{
     width: 40;
     margin: 0,15; 
 } 
@@ -28,7 +27,6 @@ body {
 
 .menu{
     background-color:#080E42;
-    color: #FFC436
     text-align: center;  
 }
 .menu ul{
@@ -61,6 +59,8 @@ body {
     padding: 10px;
     height: 150px;
     overflow: hidden;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 14px;
 }
 .articulo div{
     margin: 10px;
@@ -75,14 +75,15 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px, 25px;
+    padding: 0px,20px;
     background-color:#080E42;
-    color: #FFC436;
+    color: #FFC436;  
 }
 .iconos{
     display: flex;
-    column-gap: 12px;
+    column-gap: 10px;
 } 
-.iconos
-    a font-size: 24px
-} 
+.iconos a {
+    font-size: 22px;
+    }
+ 
