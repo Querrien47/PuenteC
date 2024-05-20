@@ -1,0 +1,88 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.encabezado {   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color:#080E42
+    background-color: azure;
+    padding: 10px;
+} 
+.encabezado {img;
+    width: 40;
+    margin: 0,15; 
+} 
+.encabezado {text-align: center;}
+
+.encabezado-centro h1 {
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+/*--------------------------Diseño de menú principal -------------------------------------*/
+
+.menu{
+    background-color:#080E42;
+    color: #FFC436
+    text-align: center;  
+}
+.menu ul{
+    list-style: none;
+    padding: 10px;
+    margin: 0px;
+}
+
+.menu ul li{
+    display: inline-block;
+}
+.menu li a {
+    color: #FFC436;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+.menu li a:hover{
+    background-color: #191d88;
+    animation: 1s 3 boton-menu;
+}
+@keyframes boton-menu{
+    0% {transform: scaleX(1.0);}
+    50% {transform: scaleX(1.15);}
+    100% {transform: scaleX(1.0);}
+}
+/*--------------------------Diseño de novedades de la pagina principal -------------------------------------*/
+.articulo{
+    display: flex;
+    padding: 10px;
+    height: 150px;
+    overflow: hidden;
+}
+.articulo div{
+    margin: 10px;
+}    
+.articulo img{
+    height: 150px;
+    width: 150px;
+}
+
+/*--------------------------Diseño de pie de pagina -------------------------------------*/
+.pie{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px, 25px;
+    background-color:#080E42;
+    color: #FFC436;
+}
+.iconos{
+    display: flex;
+    column-gap: 12px;
+} 
+.iconos
+    a font-size: 24px
+} 
