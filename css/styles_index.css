@@ -15,19 +15,19 @@ body {
     width: 40;
     margin: 0,15; 
 } 
-.encabezado {text-align: center;}
 
 .encabezado-centro h1 {
     font-size: 30px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
+    text-align: center;
 }
 
 /*--------------------------Diseño de menú principal -------------------------------------*/
 
 .menu{
     background-color:#080E42;
-    text-align: center;  
+    text-align: center; 
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
 }
 .menu ul{
     list-style: none;
@@ -75,13 +75,14 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px,20px;
+    padding: 20px,0px;
     background-color:#080E42;
     color: #FFC436;  
 }
 .iconos{
     display: flex;
     column-gap: 10px;
+    padding: 20px;
 } 
 .iconos a {
     font-size: 22px;
