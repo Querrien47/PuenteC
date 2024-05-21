@@ -1,0 +1,102 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  background-color: #f4f4f4;
+}
+
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f4f4f4;
+}
+
+.encabezado-izq, .encabezado-centro, .encabezado-der {
+  flex: 1;
+  text-align: center;
+}
+
+.encabezado-izq a img {
+  width: 140px; /* Ajusta el tamaño de la imagen según sea necesario */
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.encabezado-izq a img:hover {
+  transform: scale(1.1); /* Efecto hover para la imagen del logo */
+}
+
+.encabezado-der img {
+  width: 120px; /* Ajusta el tamaño de la imagen según sea necesario */
+  height: auto;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  width: 100vw;
+  height: 100vh;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 70%;
+  overflow: hidden;
+}
+
+.carousel {
+  position: relative;
+  height: 100%;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+  height: 100%;
+}
+
+.carousel-item {
+  min-width: 100%;
+  transition: opacity 1s ease;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.article-container {
+  padding: 10px;
+  background-color: #fff;
+  overflow-y: auto;
+}
+
