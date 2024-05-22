@@ -53,6 +53,44 @@ body {
     50% {transform: scaleX(1.15);}
     100% {transform: scaleX(1.0);}
 }
+/*--------------------------Diseño de slider de la pagina principal ----------------------------------------*/
+
+.slider {
+    width: 100%;
+    height:400px ; /* Ajusta la altura según sea necesario */
+    overflow: hidden;
+    position: relative;
+}
+
+.slides {
+    display: flex;
+    width: 100%; /* 100% por cada imagen */
+    height: 100%;
+    animation: slide 20s infinite;
+}
+
+.slide {
+    width: 100%;
+    flex: 1 0 100%;
+    transition: transform 1s;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0%); }
+    20% { transform: translateX(0%); }
+    30% { transform: translateX(-100%); }
+    40% { transform: translateX(-100%); }
+    50% { transform: translateX(-200%); }
+    60% { transform: translateX(-200%); }
+    80% { transform: translateX(-300%); }
+    100% { transform: translateX(-300%); }
+}
+
 /*--------------------------Diseño de novedades de la pagina principal -------------------------------------*/
 .articulo{
     display: flex;
