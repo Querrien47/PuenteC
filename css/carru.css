@@ -39,10 +39,9 @@ body {
 
 .container {
   display: grid;
-  grid-template-columns: 60% 40%;
+  grid-template-columns: 1fr;
   width: 100vw;
-  height: 70vh;
-  margin-bottom: 0mm;
+  height: auto;
 }
 
 .carousel-container {
@@ -70,7 +69,7 @@ body {
 
 .carousel-item img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
   display: block;
 }
@@ -101,24 +100,14 @@ body {
   overflow-y: auto;
 }
 
-
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 20px;
-  width: 80%;
+  width: 90%;
   max-width: 1200px;
   margin: 0 auto; /* Align the grid container to the center of the page */
   margin-top: 10px; /* Add a top margin of 10px */
-}
-
-
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  width: 80%;
-  max-width: 1200px;
 }
 
 .grid-item {
@@ -148,6 +137,67 @@ body {
   padding-top: 10px;
   font-size: 1em;
   color: #333;
+}
+
+/* Media Queries */
+@media (min-width: 600px) {
+  .container {
+    grid-template-columns: 60% 40%;
+    height: 70vh;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.menu li {
+  margin: 5px;
+}
+
+.menu a {
+  text-decoration: none;
+  padding: 10px 20px;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  transition: background-color 0.3s ease;
+}
+
+.menu a:hover {
+  background-color: #eee;
+}
+
+.pie {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.pie .iconos a {
+  color: #fff;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.pie .iconos a:hover {
+  color: #aaa;
 }
 
 
