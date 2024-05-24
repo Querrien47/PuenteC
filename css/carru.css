@@ -174,8 +174,7 @@ body {
   text-decoration: none;
   padding: 10px 20px;
   color: #000;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  background-color: #000;
   transition: background-color 0.3s ease;
 }
 
