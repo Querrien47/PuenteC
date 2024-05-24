@@ -1,7 +1,8 @@
 body {
     font-family: Helvetica, sans-serif;
     font-size: 14x;
-    margin: 10px;
+    margin: 0px;
+
     line-height: 1.6;
     background-color: #f9f9f9;
     color: #333;
@@ -12,24 +13,28 @@ header1 h1 {
     font-size: 22px;
     text-align: center;
     margin-bottom: 20px;
+    
 }
 
 h2 {
     color: #044672;
     font-size: 18px;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 20px;
 }
 
 h3 {
     color: #044672;
     font-size: 16px;
     margin-bottom: 8px;
+    padding: 20px;
 }
 
-.section {
+p {
+    color: #044672;
     margin-bottom: 20px;
-    padding: 15px;
+    padding: 10px 20px;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -38,8 +43,48 @@ h3 {
 ul {
     list-style-type: disc;
     margin-left: 10px;
+    padding: 20px;
+    
 }
 
 li {
+    mar
     margin-bottom: 5px;
+}
+
+.pie {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+    background-color: #080E42;
+    color: #FFC436;
+    grid-area: pie;
+}
+.especial{ 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+    background-color: #080E42;
+    color: #FFC436;
+}
+.li-especial{
+    list-style: none;
+    color: #044672;
+    margin-bottom: 20px;
+    padding: 10px 5px;
+    background-color: #fff;
+    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+.iconos {
+    display: flex;
+    column-gap: 10px;
+    padding: 20px;
+}
+
+.iconos a {
+    font-size: 30px;
 }

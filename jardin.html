@@ -1,5 +1,3 @@
-
-
 <!--/* <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,102 +8,195 @@
     <link rel="stylesheet" href="styles_pagina.css">
 </head>
 <body>-->
-    <!DOCTYPE html>
-    <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Inicial</title>
-        <link rel="stylesheet" href="css/styles_index.css">    
-        <link rel="stylesheet" href="css/styles_pagina-jardin.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    </head>
-    <body class="contendor-pagina">
-        <!-- Contendor principal -->
-        <div>
-            <!-- Encabezado -->
-            <header class="encabezado">
-                <div class="encabezado-izq">
-                    <a href="index.html">
-                    <img src="img/logo 140.png" alt="Logo del colegio">
-                    </a>
-                </div>
-                <div class="encabezado-centro">
-                <h1>
-                    Escuela Normal N° 13 <br>
-                    Puente del Conocimiento
-                    
-                </h1>
-                    
-                </div>
-                <div class="encabezado-der">
-                    <img src="img/logo agencia 120.png" alt="Logo de codo a codo">
-                </div>
-            </header>
-            <!-- Barra de menú -->
-                <nav class="menu">
-                    <ul>
-                        <li><a href="institucional.html">INSTITUCIONAL</a></li>
-                        <li><a href="carru.html">JARDIN +</a> </li>
-                        <li><a href="primario.html">PRIMARIO</a> </li>
-                        <li><a href="secundario.html">SECUNDARIO</a> </li>
-                        <li><a href="idiomas.html">IDIOMAS</a> </li>
-                        <li><a href="deportes.html">DEPORTES</a> </li>
-                        <li><a href="contacto.html">CONTACTO</a> </li>
-                    </ul>
-    
-                </nav>
-            <!-- Nivel Inicial  -->
-            
-        
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicial</title>
+    <link rel="stylesheet" href="css/styles_index.css">
+    <link rel="stylesheet" href="css/styles_pagina.css">
+    <link rel="stylesheet" href="css/carru.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body class="contendor-pagina">
+    <!-- Contendor principal -->
+    <div>
+        <!-- Encabezado -->
+        <header class="encabezado">
+            <div class="encabezado-izq">
+                <a href="index.html">
+                <img src="img/logo140.png" alt="Logo del colegio">
+                </a>
+            </div>
+            <div class="encabezado-centro">
+            <h1>
+                Escuela Normal N° 13 <br>
+                Puente del Conocimiento
+                
+            </h1>
+                
+            </div>
+            <div class="encabezado-der">
+                <img src="img/logoagencia120.png" alt="Logo de codo a codo">
+            </div>
+        </header>
+        <!-- Barra de menú -->
+            <nav class="menu">
+                <ul>
+                    <li><a href="institucional.html">INSTITUCIONAL</a></li>
+                    <li><a href="jardin.html">JARDIN</a> </li>
+                    <li><a href="primario.html">PRIMARIO</a> </li>
+                    <li><a href="secundario.html">SECUNDARIO</a> </li>
+                    <li><a href="idiomas.html">IDIOMAS</a> </li>
+                    <li><a href="deportes.html">DEPORTES</a> </li>
+                    <li><a href="contacto.html">CONTACTO</a> </li>
+                </ul>
+
+            </nav>
+        <!-- Nivel Inicial  -->
+
+        <!--
             <header1>
-                <h1>Nivel Inicial: Jardín y Preescolar</h1>
+                <h2>Nivel Inicial: Jardín y Preescolar</h2>
             </header>
-            
+        -->
+        <!--Grid Layout with Carousel-->
+        <div class="container">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/SalasA810.jpg" alt="Imagen 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Sala3A810.jpg" alt="Imagen 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Sala4A810.jpg" alt="Imagen 3">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Sala5A810.jpg" alt="Imagen 3">
+                        </div>
+                    </div>
+                    <button class="carousel-control prev" onclick="prevSlide()">❮</button>
+                    <button class="carousel-control next" onclick="nextSlide()">❯</button>
+                </div>
+            </div>
+            <div class="article-container">
+                <article>
+                    <header1>
+                        <h2>Nivel Inicial: Jardín y Preescolar</h2>
+                        </header>
+                        <p> Enviar a tus hijos a nuestro jardín de infantes ofrece múltiples ventajas. Nuestro equipo
+                            docente está altamente capacitado, comprometido con el desarrollo integral de cada niño y
+                            utiliza métodos pedagógicos innovadores para estimular el aprendizaje y la curiosidad.
+                            Además, ofrecemos una amplia gama de actividades extracurriculares diseñadas para potenciar
+                            habilidades sociales, creativas y físicas. Desde clases de música y arte hasta deportes y
+                            exploración científica, nuestros programas extracurriculares aseguran que los niños tengan
+                            una experiencia educativa completa y enriquecedora. La combinación de un entorno seguro,
+                            docentes de calidad y actividades variadas garantiza que sus hijos recibirán una educación
+                            sólida y divertida, preparándolos para futuros desafíos académicos y personales.</p>
+                        <section class="desarrollo-integral">
+                            <h2>Desarrollo Integral</h2>
+                            <p>En Puente del Conocimiento, nuestro programa de Educación Inicial está diseñado para
+                                fomentar el desarrollo integral de los niños, abarcando aspectos cognitivos,
+                                emocionales, sociales y físicos. Creemos en la importancia de una base sólida para el
+                                futuro académico y personal de cada niño.<br>
+                                <strong>Enfoque Personalizado:</strong> Adaptamos nuestras actividades a las necesidades
+                                y ritmos de aprendizaje de cada niño, asegurando que todos se sientan apoyados y
+                                motivados.<br>
+                                <strong>Aprendizaje Lúdico:</strong> Utilizamos el juego como herramienta principal de
+                                aprendizaje, permitiendo a los niños explorar y descubrir el mundo que les rodea de
+                                manera natural y divertida.
+                            </p><br>
+                            <br>
+                        </section>
+
+                        <section class="espacios-actividades">
+                            <h2>Espacios y Actividades</h2>
+                            <p>Nuestras instalaciones están diseñadas para ofrecer un ambiente seguro, acogedor y
+                                estimulante, donde los niños pueden aprender y jugar con total libertad. <br>
+                                <strong>Aulas Modernas y Seguras:</strong> Equipadas con materiales didácticos adecuados
+                                para cada etapa de desarrollo, fomentando la creatividad y la curiosidad. <br>
+                                <strong>Actividades Enriquecedoras:</strong> Incluimos arte, música, psicomotricidad, y
+                                cuentos, que promueven el desarrollo de habilidades motoras, cognitivas y sociales.<br>
+                                <br>
+
+                        </section>
+                </article>
+
+            </div>
+        </div>
+
+        <!--Articulos con foto
+        <div class="grid-container">
+            <div class="grid-item">
+                <h2>Sala de 3 años </h2>
+                <img src="img/Sala3.jpg" alt="Imagen 1">
+                <article>Niños de tres años de edad, cumplidos a partir del mes de julio del presente año.</article>
+            </div>
+            <div class="grid-item">
+                <h2>Sala de 4 años</h2>
+                <img src="img/Sala4.jpg" alt="Imagen 2">
+                <article>Niños de cuatro años de edad, cumplidos a partir del mes de julio del presente año.</article>
+            </div>
+            <div class="grid-item">
+                <h2>Preescolar</h2>
+                <img src="img/Preescolar.jpg" alt="Imagen 3">
+                <article>Niños de cinco años de edad, cumplidos a partir del mes de julio del presente año.</article>
+            </div>
+        </div>
+        -->
+        <!--
             <main>
                 <section class="desarrollo-integral">
                     <h2>Desarrollo Integral</h2>
-                    <p>En Puente del Conocimiento, nuestro programa de Educación Inicial está diseñado para fomentar el desarrollo integral de los niños, abarcando aspectos cognitivos, emocionales, sociales y físicos. Creemos en la importancia de una base sólida para el futuro académico y personal de cada niño.</p>
-                    <ul>
-                        <li><strong>Enfoque Personalizado:</strong> Adaptamos nuestras actividades a las necesidades y ritmos de aprendizaje de cada niño, asegurando que todos se sientan apoyados y motivados.</li>
-                        <li><strong>Aprendizaje Lúdico:</strong> Utilizamos el juego como herramienta principal de aprendizaje, permitiendo a los niños explorar y descubrir el mundo que les rodea de manera natural y divertida.</li>
-                    </ul>
+                    <p>En Puente del Conocimiento, nuestro programa de Educación Inicial está diseñado para fomentar el desarrollo integral de los niños, abarcando aspectos cognitivos, emocionales, sociales y físicos. Creemos en la importancia de una base sólida para el futuro académico y personal de cada niño.<br>
+                    <strong>Enfoque Personalizado:</strong> Adaptamos nuestras actividades a las necesidades y ritmos de aprendizaje de cada niño, asegurando que todos se sientan apoyados y motivados.<br>
+                    <strong>Aprendizaje Lúdico:</strong> Utilizamos el juego como herramienta principal de aprendizaje, permitiendo a los niños explorar y descubrir el mundo que les rodea de manera natural y divertida.</p><br>
+                    <br>
                 </section>
                 
                 <section class="espacios-actividades">
                     <h2>Espacios y Actividades</h2>
-                    <p>Nuestras instalaciones están diseñadas para ofrecer un ambiente seguro, acogedor y estimulante, donde los niños pueden aprender y jugar con total libertad.</p>
-                    <ul>
-                        <li><strong>Aulas Modernas y Seguras:</strong> Equipadas con materiales didácticos adecuados para cada etapa de desarrollo, fomentando la creatividad y la curiosidad.</li>
-                        <li><strong>Actividades Enriquecedoras:</strong> Incluimos arte, música, psicomotricidad, y cuentos, que promueven el desarrollo de habilidades motoras, cognitivas y sociales.</li>
-                    </ul>
+                    <p>Nuestras instalaciones están diseñadas para ofrecer un ambiente seguro, acogedor y estimulante, donde los niños pueden aprender y jugar con total libertad. <br>
+                    <strong>Aulas Modernas y Seguras:</strong> Equipadas con materiales didácticos adecuados para cada etapa de desarrollo, fomentando la creatividad y la curiosidad. <br>                       
+                    <strong>Actividades Enriquecedoras:</strong> Incluimos arte, música, psicomotricidad, y cuentos, que promueven el desarrollo de habilidades motoras, cognitivas y sociales.<br>
+                        <br>
+                
                 </section>
             </main>
-        </body>
-        </html>
-             
-            <!-- Pie de página -->
-    
-            <footer class="pie">
-                <div>
-                    <p>&copy Equipo N° 15 - Curso 24170 - 2024 <br>
-                        Escuela Puente del Conocimiento <br>
-                        Güemes 3989 - Ciudad de Buenos Aires 
-                        </p>
-                </div>
-                                    
-                <div class="iconos">
-                    <a href="#"><span class="fas fa-envelope" title="Mail"></span></a>
-                    <a href="#"><span class="fab fa-instagram" title="Instagram"></span></a>
-                    <a href="#"><span class="fab fa-facebook" title="Facebook"></span></a>
-                    <a href="#"><span class="fab fa-twitter" title="Twitter"></span></a>
-                </div>
-            
-    
-            </footer>
-    
-        </div>
-        <script src="script.js"></script>
-    </body>
-    </html>
-    
+            -->
+</body>
+
+</html>
+
+<!-- Pie de página -->
+
+<footer class="pie">
+    <div>
+        <p class="especial">&copy Equipo N° 15 - Curso 24170 - 2024 <br>
+            Escuela Puente del Conocimiento <br>
+            Güemes 3989 - Ciudad de Buenos Aires
+        </p>
+    </div>
+
+    <div class="iconos">
+        <a href="#"><span class="fas fa-envelope" title="Mail"></span></a>
+        <a href="#"><span class="fab fa-instagram" title="Instagram"></span></a>
+        <a href="#"><span class="fab fa-facebook" title="Facebook"></span></a>
+        <a href="#"><span class="fab fa-twitter" title="Twitter"></span></a>
+    </div>
+
+
+</footer>
+
+</div>
+<script src="script.js"></script>
+<script src="carru.js"></script>
+</body>
+
+</html>

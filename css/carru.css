@@ -174,7 +174,7 @@ body {
   text-decoration: none;
   padding: 10px 20px;
   color: #000;
-  background-color: #000;
+
   transition: background-color 0.3s ease;
 }
 
@@ -182,15 +182,20 @@ body {
   background-color: #eee;
 }
 
+
 .pie {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+  background-color: #080E42;
+  color: #FFC436;
+  grid-area: pie;
 }
 
+
 .pie .iconos a {
-  color: #fff;
+  color: #0f838b;
   margin: 0 10px;
   transition: color 0.3s ease;
 }
