@@ -9,34 +9,6 @@ body {
   background-color: #f4f4f4;
 }
 
-.encabezado {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: #f4f4f4;
-}
-
-.encabezado-izq, .encabezado-centro, .encabezado-der {
-  flex: 1;
-  text-align: center;
-}
-
-.encabezado-izq a img {
-  width: 140px; /* Ajusta el tamaño de la imagen según sea necesario */
-  height: auto;
-  transition: transform 0.3s ease;
-}
-
-.encabezado-izq a img:hover {
-  transform: scale(1.1); /* Efecto hover para la imagen del logo */
-}
-
-.encabezado-der img {
-  width: 120px; /* Ajusta el tamaño de la imagen según sea necesario */
-  height: auto;
-}
-
 .container {
   display: grid;
   grid-template-columns: 1fr;
