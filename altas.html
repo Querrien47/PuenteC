@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar producto 🚀</title>
+    <title>Agregar Registro 🚀</title>
     <link rel="stylesheet" href="./static/css/estilos.css">
 </head>
 
@@ -24,21 +24,21 @@
     <!--enctype="multipart/form-data" es necesario para enviar archivos al back.-->
     <form id="formulario" enctype="multipart/form-data">
         
-        <label for="descripcion">Nombre y Apellido:</label>
-        <input type="text" id="descripcion" name="descripcion" required><br>
+        <label for="alumno">Nombre y Apellido:</label>
+        <input type="text" id="alumno" name="alumno" required><br>
 
-        <label for="cantidad">DNI:</label>
-        <input type="number" id="cantidad" name="cantidad" required><br>
+        <label for="dniAlumno">DNI:</label>
+        <input type="number" id="dniAlumno" name="dni" required><br>
 
-        <label for="precio">Sala/Grado/Año:<ol></ol></label>
-        <input type="number" id="precio" name="precio" required><br>
+        <label for="claseAlumno">Sala/Grado/Año:<ol></ol></label>
+        <input type="number" id="claseAlumno" name="clase" required><br>
 
-        <label for="imagenProducto">Fotografía</label>
-        <input type="file" id="imagenProducto" name="imagen">
+        <label for="imagenAlumno">Fotografía</label>
+        <input type="file" id="imagenAlumno" name="imagen">
 
         <br><br>
-        <label for="proveedorProducto">Nivel:</label>
-        <input type="text" id="proveedorProducto" name="proveedor">
+        <label for="nivelAlumno">Nivel:</label>
+        <input type="text" id="nivelAlumno" name="nivel">
         
         <button type="submit">Agregar Alumno</button>
         <a href="registro.html">Menu principal</a>
@@ -46,7 +46,7 @@
     
     <script>
         // const URL = "http://127.0.0.1:5000/"
-        const URL = "https://juanpablocodo.pythonanywhere.com/"
+        const URL = https://www.pythonanywhere.com/user/Querrien47/
 
         //Al subir al servidor, deberá utilizarse la siguiente ruta. USUARIO debe ser reemplazado por el nombre de usuario de Pythonanywhere
         //const URL = "https://USUARIO.pythonanywhere.com/"
@@ -59,7 +59,7 @@
             var formData = new FormData(this);
     
             // Realizamos la solicitud POST al servidor
-            fetch(URL + 'productos', {
+            fetch(URL + 'alumnos', {
                 method: 'POST',
                 body: formData // Aquí enviamos formData. Dado que formData puede contener archivos, no se utiliza JSON.
             })
@@ -72,27 +72,27 @@
                     } else {
                         // Si hubo un error, lanzar explícitamente una excepción
                         // para ser "catcheada" más adelante
-                        throw new Error('Error al agregar el producto.');
+                        throw new Error('Error al agregar el alumno.');
                     }
             })
 
                 //Respuesta OK, muestra una alerta informando que el producto se agregó correctamente y limpia los campos del formulario para que puedan ser utilizados para un nuevo producto.
                 .then(function (data) {
-                    alert('Producto agregado correctamente.');
+                    alert('Alumno agregado correctamente.');
                 })
 
                 // En caso de error, mostramos una alerta con un mensaje de error.
                 .catch(function (error) {
-                    alert('Error al agregar el producto.');
+                    alert('Error al agregar el alumno.');
                 })
 
                 // Limpiar el formulario en ambos casos (éxito o error)
                 .finally(function () {
-                    document.getElementById('descripcion').value = "";
-                    document.getElementById('cantidad').value = "";
-                    document.getElementById('precio').value = "";
-                    document.getElementById('imagenProducto').value = "";
-                    document.getElementById('proveedorProducto').value = "";
+                    document.getElementById('nombre y apellido').value = "";
+                    document.getElementById('dniAlumno').value = "";
+                    document.getElementById('claseAlumno').value = "";
+                    document.getElementById('imagenAlumno').value = "";
+                    document.getElementById('nivelAlumno').value = "";
                 });
         })
     </script>
