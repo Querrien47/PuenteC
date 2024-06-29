@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eliminar Productos 🚀</title>
+    <title>Baja de Registros 🚀</title>
     <link rel="stylesheet" href="./static/css/estilos.css">
 </head>
 
@@ -20,14 +20,16 @@
         <img src="img/Logo140.png" alt="logo">
     </div>
     <h1>Baja de Registros</h1><br>
-
-    <table id="productos-table"> <!-- Se crea una tabla para mostrar los productos. -->
-        <thead> <!--Encabezado de la tabla con columnas para código, descripción, cantidad, precio y acciones.-->
+roductos
+    <table id="alumnos-table"> <!-- Se crea una tabla para mostrar los alumnos. -->
+        <thead> <!--Encabezado de la tabla con columnas para código, nombre y apeliido, dni, clase imagen, nivel y acciones.-->
             <tr>
                 <th>Código</th>
-                <th>Descripción</th>
-                <th>Cantidad</th>
-                <th align="right">Precio</th>
+                <th>Nombre y Apellido</th>
+                <th>dDni</th>
+                <th align="right">clase</th>
+                <th>Imagen</th>
+                <th>Nivel</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -40,48 +42,50 @@
     </div>
     <script>
         // const URL = "http://127.0.0.1:5000/"
-        const URL = "https://juanpablocodo.pythonanywhere.com/"
+        const URL = https://www.pythonanywhere.com/user/Querrien47/
 
         
-        // Obtiene el contenido del inventario
-        function obtenerProductos() {
-            fetch(URL + 'productos') // Realiza una solicitud GET al servidor y obtener la lista de productos.
+        // Obtiene el contenido del Registro
+        function obtenerAlumnos() {
+            fetch(URL + 'alumnos') // Realiza una solicitud GET al servidor y obtener la lista de alumnos.
                 .then(response => {
                     // Si es exitosa (response.ok), convierte los datos de la respuesta de formato JSON a un objeto JavaScript.
                     if (response.ok) { return response.json(); }
                 })
-                // Asigna los datos de los productos obtenidos a la propiedad productos del estado.
+                // Asigna los datos de los alumnos obtenidos.
                 .then(data => {
-                    const productosTable = document.getElementById('productos-table').getElementsByTagName('tbody')[0];
-                    productosTable.innerHTML = ''; // Limpia la tabla antes de insertar nuevos datos
-                    data.forEach(producto => {
-                        const row = productosTable.insertRow();
+                    const alumnosTable = document.getElementById('alumnos-table').getElementsByTagName('tbody')[0];
+                    alumnosTable.innerHTML = ''; // Limpia la tabla antes de insertar nuevos datos
+                    data.forEach(alumno => {
+                        const row = alumnosTable.insertRow();
                         row.innerHTML = `
-                            <td>${producto.codigo}</td>
-                            <td>${producto.descripcion}</td>
-                            <td>${producto.cantidad}</td>
-                            <td align="right">${producto.precio}</td>
-                            <td><button onclick="eliminarProducto('${producto.codigo}')">Eliminar</button></td>
+                            <td>${alumno.codigo}</td>
+                            <td>${alumno.nombreYApellido}</td>
+                            <td>${alumno.dni}</td>
+                            <td align="right">${alumno.clase}</td>
+                            <td>${alumno.imagen}</td>
+                            <td>${alumno.nivel}</td>
+                            <td><button onclick="eliminarAlumno('${alumno.codigo}')">Eliminar</button></td>
                         `;
                     });
                 })
-                // Captura y maneja errores, mostrando una alerta en caso de error al obtener los productos.
+                // Captura y maneja errores, mostrando una alerta en caso de error al obtener los alumnos.
                 .catch(error => {
                     console.log('Error:', error);
-                    alert('Error al obtener los productos.');
+                    alert('Error al obtener los alumnos.');
                 });
         }
 
-        // Se utiliza para eliminar un producto.
-        function eliminarProducto(codigo) {
-            // Se muestra un diálogo de confirmación. Si el usuario confirma, se realiza una solicitud DELETE al servidor a través de fetch(URL + 'productos/${codigo}', {method: 'DELETE' }).
-            if (confirm('¿Estás seguro de que quieres eliminar este producto?')) {
-                fetch(URL + `productos/${codigo}`, { method: 'DELETE' })
+        // Se utiliza para dar de baja un alumno.
+        function eliminarAlumno(codigo) {
+            // Se muestra un diálogo de confirmación. Si el usuario confirma, se realiza una solicitud DELETE al servidor a través de fetch(URL + 'alumnos/${codigo}', {method: 'DELETE' }).
+            if (confirm('¿Está seguro de que quiere edar de baja al alumno?')) {
+                fetch(URL + `alumno/${codigo}`, { method: 'DELETE' })
                     .then(response => {
                         if (response.ok) {
-                            // Si es exitosa (response.ok), elimina el producto y da mensaje de ok.
-                            obtenerProductos(); // Vuelve a obtener la lista de productos para actualizar la tabla.
-                            alert('Producto eliminado correctamente.');
+                            // Si es exitosa (response.ok), elimina elalumno y da mensaje de ok.
+                            obtenerAlumno(); // Vuelve a obtener la lista de alumnos para actualizar la tabla.
+                            alert('Alumno dado de baja correctamente.');
                         }
                     })
                     // En caso de error, mostramos una alerta con un mensaje de error.
@@ -91,8 +95,8 @@
             }
         }
 
-        // Cuando la página se carga, llama a obtenerProductos para cargar la lista de productos.
-        document.addEventListener('DOMContentLoaded', obtenerProductos);
+        // Cuando la página se carga, llama a obtenerAlumnos para cargar la lista.
+        document.addEventListener('DOMContentLoaded', obtenerAlumnos);
     </script>
 </body>
 </html>
