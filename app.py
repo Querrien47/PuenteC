@@ -105,11 +105,11 @@ class Registro:
 # Cuerpo del programa
 #--------------------------------------------------------------------
 # Crear una instancia de la clase Registro
-registro = Registro(host='querrien47.mysql.pythonanywhere-services.com', user='querrien47', password='puente1234', database='querrien47$miapp')
+registro = Registro(host='Querrien47.mysql.pythonanywhere-services.com', user='Querrien47', password='puente1234', database='Querrien47$miapp')
 
 # Carpeta para guardar las imagenes
 # ruta_destino = './imagenes/'
-ruta_destino = '/home/querrien47/mysite/static/imagenes/'
+ruta_destino = '/home/Querrien47/mysite/static/imagenes/'
 
 @app.route("/alumnos", methods=["GET"])
 def listar_alumnos():
