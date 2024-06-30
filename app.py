@@ -44,8 +44,7 @@ class Registro:
     
         self.cursor.execute('''CREATE TABLE IF NOT EXISTS alumnos (
             codigo INT AUTO_INCREMENT PRIMARY KEY,
-            apellido VARCHAR(40) NOT NULL,
-            nombre VARCHAR (40) NOT NULL,
+            alumno VARCHAR (40) NOT NULL,
             dni INT (8) NOT NULL
             clase INT (1) NOT NULL,
             nivel VARCHAR (1) NOT NULL,
@@ -72,7 +71,7 @@ class Registro:
         if alumno:
             
             print(f"Código: {alumno['codigo']}")
-            print(f"Nombre y Apellido: {alumno['nombreYApellido']}")
+            print(f"Nombre y Apellido: {alumno['alumno']}")
             print(f"Dni:{alumno['dni']}")
             print(f"Clase: {alumno['clase']}")
             print(f"Nivel: {alumno['nivel']}")
@@ -82,16 +81,16 @@ class Registro:
             print("Alumno no encontrado")
 
     # Agregar un alumno 
-    def agregar_alumno(self, nombreYApellido, dni, clase, nivel, imagen_url):
-        sql = "INSERT INTO alumnos (nombreYApellido,dni, clase, nivel, imagen_url) VALUES (%s, %s, %s, %s, %s)"
-        valores = (nombreYApellido, dni, clase, nivel, imagen_url)
+    def agregar_alumno(self, alumno, dni, clase, nivel, imagen_url):
+        sql = "INSERT INTO alumnos (alumno,dni, clase, nivel, imagen_url) VALUES (%s, %s, %s, %s, %s)"
+        valores = (alumno, dni, clase, nivel, imagen_url)
         self.cursor.execute(sql, valores)
         self.conn.commit
         return self.cursor.lastrowid
 
-    def modificar_alumno(self, nuevo_codigo, nuevo_nombreYApellido, nuevo_dni, nueva_clase, nuevo_nivel, nueva_imagen_url):
-        sql = "UPDATE alumnos SET nombreYApellido = %s, dni = %s, clase = %s, nivel = %s, imagen_url = %s WHERE codigo = %s"
-        valores = (nuevo_codigo, nuevo_nombreYApellido, nuevo_dni, nueva_clase, nuevo_nivel, nueva_imagen_url)
+    def modificar_alumno(self, nuevo_codigo, nuevo_alumno, nuevo_dni, nueva_clase, nuevo_nivel, nueva_imagen_url):
+        sql = "UPDATE alumnos SET alumno = %s, dni = %s, clase = %s, nivel = %s, imagen_url = %s WHERE codigo = %s"
+        valores = (nuevo_codigo, nuevo_alumno, nuevo_dni, nueva_clase, nuevo_nivel, nueva_imagen_url)
         self.cursor.execute(sql, valores)
         self.conn.commit()
         return self.cursor.rowcount > 0
@@ -128,15 +127,11 @@ def mostrar_alumnos(codigo):
 @app.route("/alumnos", methods=["POST"])
 def agregar_alumno():
     #Recojo los datos del form
-    nombreYApellido = request.form['nombreYApellido']
+    alumno = request.form['alumno']
     dni = request.form['dni']
     clase = request.form['clase']
     nivel = request.form['nivel']
     nombre_imagen = request.files['imagen']
-    dni = request.form['dni']
-    clase = request.form['clase']
-    nivel = request.form['nivel']
-    nombre_imagen = request.files['imagen']  
     
 
     # Genero el nombre de la imagen
@@ -144,7 +139,7 @@ def agregar_alumno():
     nombre_base, extension = os.path.splitext(nombre_imagen) 
     nombre_imagen = f"{nombre_base}_{int(time.time())}{extension}" 
 
-    nuevo_codigo = registro.agregar_alumno (nombreYApellido, dni, clase, nivel, nombre_imagen )
+    nuevo_codigo = registro.agregar_alumno (alumno, dni, clase, nivel, nombre_imagen )
     if nuevo_codigo:    
         nombre_imagen.save(os.path.join(ruta_destino, nombre_imagen))
         return jsonify({"mensaje": "Alumno agregado correctamente.", "codigo": nuevo_codigo, "imagen": nombre_imagen})
@@ -154,7 +149,7 @@ def agregar_alumno():
 @app.route("/alumnos/<int:codigo>", methods=["PUT"])
 def modificar_alumno(codigo):
     #Se recuperan los nuevos datos del formulario
-    nuevo_nombreYApellido = request.form.get("nombreYApellido")
+    nuevo_alumno = request.form.get("alumno")
     nuevo_dni = request.form.get("dni")
     nueva_clase = request.form.get("clase")
     nuevo_nivel = request.form.get("nivel")
@@ -187,7 +182,7 @@ def modificar_alumno(codigo):
             nombre_imagen = alumno["imagen_url"]
 
    # Se llama al método modificar_alumno pasando el codigo del alumno y los nuevos datos.
-    if registro.modificar_alumno(codigo, nuevo_nombreYApellido, nuevo_dni, nueva_clase, nuevo_nivel, nueva_imagen):
+    if registro.modificar_alumno(codigo, nuevo_alumno, nuevo_dni, nueva_clase, nuevo_nivel, nueva_imagen):
         return jsonify({"mensaje": "Alumno modificado"}), 
     else:
         return jsonify({"mensaje": "Alumno no encontrado"}), 
