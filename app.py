@@ -89,15 +89,15 @@ class Registro:
         self.conn.commit
         return self.cursor.lastrowid
 
-    def modificar_alumno(self, nuevo_codigo, nuevo_apellido, nuevo_nombre,nuevo_dni, nueva_clase, nuevo_nivel, nueva_imagen_url):
+    def modificar_alumno(self, nuevo_codigo, nuevo_apellido, nuevo_nombre, nuevo_dni, nueva_clase, nuevo_nivel, nueva_imagen_url):
         sql = "UPDATE alumnos SET apellido = %s, nombre = %s, clase = %s, dni = %s, nivel = %s, imagen_url = %s WHERE codigo = %s"
         valores = (nuevo_codigo, nuevo_apellido, nuevo_nombre, nuevo_dni, nueva_clase, nuevo_nivel, nueva_imagen_url)
         self.cursor.execute(sql, valores)
         self.conn.commit()
         return self.cursor.rowcount > 0
 
-    def eliminar_producto(self, codigo):
-        # Eliminamos un producto de la tabla a partir de su código
+    def eliminar_alumno(self, codigo):
+        # Eliminamos un alumno de la tabla a partir de su código
         self.cursor.execute(f"DELETE FROM alumnos WHERE codigo = {codigo}")
         self.conn.commit()
         return self.cursor.rowcount > 0
