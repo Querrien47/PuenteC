@@ -81,9 +81,9 @@ class Registro:
             print("Alumno no encontrado")
 
     # Agregar un alumno 
-    def agregar_alumno(self, nombreYAapellido, dni, clase, nivel, imagen_url):
+    def agregar_alumno(self, nombreYApellido, dni, clase, nivel, imagen_url):
         sql = "INSERT INTO alumnos (nombreYApellido,dni, clase, nivel, imagen_url) VALUES (%s, %s, %s, %s, %s)"
-        valores = (nombre y apellido, dni, clase, nivel, imagen_url)
+        valores = (nombreYApellido, dni, clase, nivel, imagen_url)
         self.cursor.execute(sql, valores)
         self.conn.commit
         return self.cursor.lastrowid
@@ -143,7 +143,7 @@ def agregar_alumno():
     nombre_base, extension = os.path.splitext(nombre_imagen) 
     nombre_imagen = f"{nombre_base}_{int(time.time())}{extension}" 
 
-    nuevo_codigo = registro.agregar_alumno (nombreYAapellido, dni, clase, nivel, nombre_imagen )
+    nuevo_codigo = registro.agregar_alumno (nombreYApellido, dni, clase, nivel, nombre_imagen )
     if nuevo_codigo:    
         nombre_imagen.save(os.path.join(ruta_destino, nombre_imagen))
         return jsonify({"mensaje": "Alumno agregado correctamente.", "codigo": nuevo_codigo, "imagen": nombre_imagen})
