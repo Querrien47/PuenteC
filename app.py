@@ -81,9 +81,9 @@ class Registro:
             print("Alumno no encontrado")
 
     # Agregar un alumno 
-    def agregar_alumno(self, nombre_y_apellido, clase, nivel, imagen_url):
-        sql = "INSERT INTO alumnos (nombreYApellido,dni, clase, nivel, imagen_url) VALUES (%s, %s, %s, %s, %s,)"
-        valores = (nombre_y_apellido, dni, clase, nivel, imagen_url)
+    def agregar_alumno(self, nombre y apellido,dni, clase, nivel, imagen_url):
+        sql = "INSERT INTO alumnos (nombreYApellido,dni, clase, nivel, imagen_url) VALUES (%s, %s, %s, %s, %s)"
+        valores = (nombre y apellido, dni, clase, nivel, imagen_url)
         self.cursor.execute(sql, valores)
         self.conn.commit
         return self.cursor.lastrowid
