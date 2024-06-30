@@ -72,7 +72,7 @@ class Registro:
             
             print(f"Código: {alumno['codigo']}")
             print(f"Nombre y Apellido: {alumno['nombreYApellido']}")
-            print(f"Dni:{alumno[ 'dni' ]}")
+            print(f"Dni:{alumno['dni']}")
             print(f"Clase: {alumno['clase']}")
             print(f"Nivel: {alumno['nivel']}")
             print(f"Imagen: {alumno['imagen_url']}")
@@ -81,7 +81,7 @@ class Registro:
             print("Alumno no encontrado")
 
     # Agregar un alumno 
-    def agregar_alumno(self, nombre y apellido,dni, clase, nivel, imagen_url):
+    def agregar_alumno(self, nombreYAapellido, dni, clase, nivel, imagen_url):
         sql = "INSERT INTO alumnos (nombreYApellido,dni, clase, nivel, imagen_url) VALUES (%s, %s, %s, %s, %s)"
         valores = (nombre y apellido, dni, clase, nivel, imagen_url)
         self.cursor.execute(sql, valores)
@@ -127,7 +127,7 @@ def mostrar_alumnos(codigo):
 @app.route("/alumnos", methods=["POST"])
 def agregar_alumno():
     #Recojo los datos del form
-    nombre_y_apellido = request.form['nombreYApellido']
+    nombreYApellido = request.form['nombreYApellido']
     dni = request.form['dni']
     clase = request.form['clase']
     nivel = request.form['nivel']
@@ -143,7 +143,7 @@ def agregar_alumno():
     nombre_base, extension = os.path.splitext(nombre_imagen) 
     nombre_imagen = f"{nombre_base}_{int(time.time())}{extension}" 
 
-    nuevo_codigo = registro.agregar_alumno (nombre y apellido, dni, clase, nivel, nombre_imagen )
+    nuevo_codigo = registro.agregar_alumno (nombreYAapellido, dni, clase, nivel, nombre_imagen )
     if nuevo_codigo:    
         nombre_imagen.save(os.path.join(ruta_destino, nombre_imagen))
         return jsonify({"mensaje": "Alumno agregado correctamente.", "codigo": nuevo_codigo, "imagen": nombre_imagen})
