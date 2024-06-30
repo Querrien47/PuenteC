@@ -42,7 +42,7 @@ roductos
     </div>
     <script>
         // const URL = "http://127.0.0.1:5000/"
-        const URL = https://www.pythonanywhere.com/user/Querrien47/
+        const URL = "https://www.pythonanywhere.com/user/Querrien47/"
 
         
         // Obtiene el contenido del Registro
@@ -79,7 +79,7 @@ roductos
         // Se utiliza para dar de baja un alumno.
         function eliminarAlumno(codigo) {
             // Se muestra un diálogo de confirmación. Si el usuario confirma, se realiza una solicitud DELETE al servidor a través de fetch(URL + 'alumnos/${codigo}', {method: 'DELETE' }).
-            if (confirm('¿Está seguro de que quiere edar de baja al alumno?')) {
+            if (confirm('¿Está seguro de que quiere dar de baja al alumno?')) {
                 fetch(URL + `alumno/${codigo}`, { method: 'DELETE' })
                     .then(response => {
                         if (response.ok) {
