@@ -71,8 +71,7 @@ class Registro:
         if alumno:
             
             print(f"Código: {alumno['codigo']}")
-            print(f"Apellido: {alumno['apellido']}")
-            print(f"Nombre: {alumno['nombre']}")
+            print(f"Nombre y Apellido: {alumno['nombreYApellido']}")
             print(f"Dni:{alumno[ 'dni' ]}")
             print(f"Clase: {alumno['clase']}")
             print(f"Nivel: {alumno['nivel']}")
@@ -82,16 +81,16 @@ class Registro:
             print("Alumno no encontrado")
 
     # Agregar un alumno 
-    def agregar_alumno(self, apellido, nombre, clase, nivel, imagen_url):
-        sql = "INSERT INTO alumnos (apellido, nombre,dni, clase, nivel, imagen_url) VALUES (%s, %s, %s, %s, %s, %s)"
+    def agregar_alumno(self, nombre y apellido, clase, nivel, imagen_url):
+        sql = "INSERT INTO alumnos (nombreYApellido,dni, clase, nivel, imagen_url) VALUES (%s, %s, %s, %s, %s,)"
         valores = (apellido, nombre,dni, clase, nivel, imagen_url)
         self.cursor.execute(sql, valores)
         self.conn.commit
         return self.cursor.lastrowid
 
-    def modificar_alumno(self, nuevo_codigo, nuevo_apellido, nuevo_nombre, nuevo_dni, nueva_clase, nuevo_nivel, nueva_imagen_url):
-        sql = "UPDATE alumnos SET apellido = %s, nombre = %s, clase = %s, dni = %s, nivel = %s, imagen_url = %s WHERE codigo = %s"
-        valores = (nuevo_codigo, nuevo_apellido, nuevo_nombre, nuevo_dni, nueva_clase, nuevo_nivel, nueva_imagen_url)
+    def modificar_alumno(self, nuevo_codigo, nuevo_nombreYApellido, nuevo_dni, nueva_clase, nuevo_nivel, nueva_imagen_url):
+        sql = "UPDATE alumnos SET nombreYApellido = %s, dni = %s, clase = %s, nivel = %s, imagen_url = %s WHERE codigo = %s"
+        valores = (nuevo_codigo, nuevo_nombreYApellido, nuevo_dni, nueva_clase, nuevo_nivel, nueva_imagen_url)
         self.cursor.execute(sql, valores)
         self.conn.commit()
         return self.cursor.rowcount > 0
@@ -128,8 +127,7 @@ def mostrar_alumnos(codigo):
 @app.route("/alumnos", methods=["POST"])
 def agregar_alumno():
     #Recojo los datos del form
-    apellido = request.form['apellido']
-    nombre = request.form['nombre']
+    nombre y apellido = request.form['nombreYApellido']
     dni = request.form['dni']
     clase = request.form['clase']
     nivel = request.form['nivel']
@@ -141,7 +139,7 @@ def agregar_alumno():
     nombre_base, extension = os.path.splitext(nombre_imagen) 
     nombre_imagen = f"{nombre_base}_{int(time.time())}{extension}" 
 
-    nuevo_codigo = registro.agregar_alumno (apellido, nombre, dni, clase, nivel, nombre_imagen )
+    nuevo_codigo = registro.agregar_alumno (nombre y apellido, dni, clase, nivel, nombre_imagen )
     if nuevo_codigo:    
         nombre_imagen.save(os.path.join(ruta_destino, nombre_imagen))
         return jsonify({"mensaje": "Alumno agregado correctamente.", "codigo": nuevo_codigo, "imagen": nombre_imagen})
@@ -151,8 +149,7 @@ def agregar_alumno():
 @app.route("/alumnos/<int:codigo>", methods=["PUT"])
 def modificar_alumno(codigo):
     #Se recuperan los nuevos datos del formulario
-    nuevo_apellido = request.form.get("apellido")
-    nuevo_nombre = request.form.get("nombre")
+    nuevo_nombreYApellido = request.form.get("nombreYApellido")
     nuevo dni = request.form.get("dni")
     nueva_clase = request.form.get("clase")
     nuevo_nivel = request.form.get("nivel")
@@ -185,7 +182,7 @@ def modificar_alumno(codigo):
             nombre_imagen = alumno["imagen_url"]
 
    # Se llama al método modificar_alumno pasando el codigo del alumno y los nuevos datos.
-    if registro.modificar_alumno(codigo, nuevo_apellido, nuevo_nombre,nuevo_dni, nueva_clase, nuevo_nivel, nueva_imagen):
+    if registro.modificar_alumno(codigo, nuevo_nombreYApellido, nuevo_dni, nueva_clase, nuevo_nivel, nueva_imagen):
         return jsonify({"mensaje": "Alumno modificado"}), 
     else:
         return jsonify({"mensaje": "Alumno no encontrado"}), 
