@@ -26,7 +26,8 @@ class Registro:
 
             host=host,
             user=user,
-            password=password
+            password=password,
+            database=database
         )
         self.cursor = self.conn.cursor()
         # Intentamos seleccionar la base de datos
@@ -46,7 +47,7 @@ class Registro:
             apellido VARCHAR(40) NOT NULL,
             nombre VARCHAR (40) NOT NULL,
             dni INT (8) NOT NULL
-            clase INT NOT NULL,
+            clase INT (1) NOT NULL,
             nivel VARCHAR (1) NOT NULL,
             imagen_url VARCHAR(40))''' )
         self.conn.commit()
