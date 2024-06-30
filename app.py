@@ -83,7 +83,7 @@ class Registro:
     # Agregar un alumno 
     def agregar_alumno(self, nombre y apellido, clase, nivel, imagen_url):
         sql = "INSERT INTO alumnos (nombreYApellido,dni, clase, nivel, imagen_url) VALUES (%s, %s, %s, %s, %s,)"
-        valores = (apellido, nombre,dni, clase, nivel, imagen_url)
+        valores = (nombre y apellido, dni, clase, nivel, imagen_url)
         self.cursor.execute(sql, valores)
         self.conn.commit
         return self.cursor.lastrowid
@@ -105,7 +105,7 @@ class Registro:
 # Cuerpo del programa
 #--------------------------------------------------------------------
 # Crear una instancia de la clase Registro
-registro = Registro(host='querrien47.mysql.pythonanywhere-services.com', user='querrien47', password='CaC24170', database='querrien47$miapp')
+registro = Registro(host='querrien47.mysql.pythonanywhere-services.com', user='querrien47', password='puente1234', database='querrien47$miapp')
 
 # Carpeta para guardar las imagenes
 # ruta_destino = './imagenes/'
