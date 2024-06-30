@@ -81,9 +81,9 @@ class Registro:
             print("Alumno no encontrado")
 
     # Agregar un alumno 
-    def agregar_alumno(self, nombre y apellido, clase, nivel, imagen_url):
+    def agregar_alumno(self, nombre_y_apellido, clase, nivel, imagen_url):
         sql = "INSERT INTO alumnos (nombreYApellido,dni, clase, nivel, imagen_url) VALUES (%s, %s, %s, %s, %s,)"
-        valores = (nombre y apellido, dni, clase, nivel, imagen_url)
+        valores = (nombre_y_apellido, dni, clase, nivel, imagen_url)
         self.cursor.execute(sql, valores)
         self.conn.commit
         return self.cursor.lastrowid
@@ -127,7 +127,11 @@ def mostrar_alumnos(codigo):
 @app.route("/alumnos", methods=["POST"])
 def agregar_alumno():
     #Recojo los datos del form
-    nombre y apellido = request.form['nombreYApellido']
+    nombre_y_apellido = request.form['nombreYApellido']
+    dni = request.form['dni']
+    clase = request.form['clase']
+    nivel = request.form['nivel']
+    nombre_imagen = request.files['imagen']
     dni = request.form['dni']
     clase = request.form['clase']
     nivel = request.form['nivel']
@@ -150,7 +154,7 @@ def agregar_alumno():
 def modificar_alumno(codigo):
     #Se recuperan los nuevos datos del formulario
     nuevo_nombreYApellido = request.form.get("nombreYApellido")
-    nuevo dni = request.form.get("dni")
+    nuevo_dni = request.form.get("dni")
     nueva_clase = request.form.get("clase")
     nuevo_nivel = request.form.get("nivel")
     nueva_imagen = request.files.get('imagen')
