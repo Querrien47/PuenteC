@@ -105,7 +105,7 @@ class Registro:
 # Cuerpo del programa
 #--------------------------------------------------------------------
 # Crear una instancia de la clase Registro
-registro = Registro(host='Querrien47.mysql.pythonanywhere-services.com', user='Querrien47', password='puente1234', database='Querrien47$miapp')
+registro = Registro(host='Querrien47.mysql.pythonanywhere-services.com', user='Querrien47', password='CaC24170', database='Querrien47$miapp')
 
 # Carpeta para guardar las imagenes
 # ruta_destino = './imagenes/'
