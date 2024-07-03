@@ -30,15 +30,19 @@
         <label for="dniAlumno">DNI:</label>
         <input type="number" id="dniAlumno" name="dni" required><br>
 
-        <label for="claseAlumno">Sala/Grado/Año:<ol></ol></label>
+        <label for="claseAlumno">Sala/Grado/Año:</label>
         <input type="number" id="claseAlumno" name="clase" required><br>
 
-        <label for="imagenAlumno">Fotografía</label>
-        <input type="file" id="imagenAlumno" name="imagen">
+        <label for="imagenAlumno">Fotografía:</label>
+        <input type="file" id="imagenAlumno" name="imagen"><br><br>
 
-        <br><br>
         <label for="nivelAlumno">Nivel:</label>
-        <input type="text" id="nivelAlumno" name="nivel">
+        <select id="nivelAlumno" name="nivel" required>
+            <option value="">Seleccione una opción</option>
+            <option value="Jardín">Jardín</option>
+            <option value="Primario">Primario</option>
+            <option value="Secundario">Secundario</option>
+        </select><br><br>
         
         <button type="submit">Agregar Alumno</button>
         <a href="registro.html">Menu principal</a>
