@@ -63,7 +63,7 @@
     </div>
     <script>
         // const URL = "http://127.0.0.1:5000/"
-        const URL = "https://Querrien47.pythonanywhere.com/"
+        const URL = "https://querrien.pythonanywhere.com/"
 
 
         // Al subir al servidor, deberá utilizarse la siguiente ruta. USUARIO debe ser reemplazado por el nombre de usuario de Pythonanywhere
@@ -97,7 +97,7 @@
                     }
                 })
                 .then(data => {
-                    nombre y apellido = data.alumno;
+                    alumno = data.alumno;
                     dni = data.dni;
                     clase = data.clase;
                     nivel = data.nivel;
@@ -113,7 +113,7 @@
         // Muestra el formulario con los datos del alumno
         function mostrarFormulario() {
             if (mostrarDatosAlumno) {
-                document.getElementById('alumnoModificar').value = nombre y apellido;
+                document.getElementById('alumnoModificar').value = alumno;
                 document.getElementById('dniModificar').value = dni;
                 document.getElementById('claseModificar').value = clase;
                 document.getElementById('nivelModificar').value = nivel;
@@ -121,7 +121,7 @@
                 const imagenActual = document.getElementById('imagen-actual');
                 if (imagen_url && !imagenSeleccionada) { // Verifica si imagen_url no está vacía y no se ha seleccionado una imagen
                     
-                     imagenActual.src = 'https://www.pythonanywhere.com/user/Querrien47/files/home/Querrien47/mysite/static/imagenes' + imagen_url;                    
+                     imagenActual.src = 'https://www.pythonanywhere.com/user/querrien/files/home/querrien/mysite/static/imagenes/' + imagen_url;                    
 			//Al subir al servidor, deberá utilizarse la siguiente ruta. USUARIO debe ser reemplazado por el nombre de usuario de Pythonanywhere
                     //imagenActual.src = 'https://www.pythonanywhere.com/user/USUARIO/files/home/USUARIO/mysite/static/imagenes/' + imagen_url;
                     imagenActual.style.display = 'block'; // Muestra la imagen actual
