@@ -82,7 +82,7 @@ class Registro:
         return self.cursor.lastrowid
 
     def modificar_alumno(self, codigo, nuevo_alumno, nuevo_dni, nuevo_nivel, nueva_imagen_url):
-        sql = "UPDATE alumnos SET alumno = %s, dni = %s, nivel = %s, imagen_url = %s WHERE codigo = %s"
+        sql = "UPDATE alumnos SET alumno = alumno = %s, dni = %s, nivel = %s, imagen_url = %s WHERE codigo = %s"
         valores = (nuevo_alumno, nuevo_dni, nuevo_nivel, nueva_imagen_url, codigo)
         self.cursor.execute(sql, valores)
         self.conn.commit()
