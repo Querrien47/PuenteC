@@ -103,7 +103,6 @@ class Registro:
 registro = Registro(host='querrien.mysql.pythonanywhere-services.com', user='querrien', password='cac24170', database='querrien$miapp')
 
 # Carpeta para guardar las imagenes
-# ruta_destino = './imagenes/'
 ruta_destino = '/home/querrien/mysite/static/imagenes/'
 
 @app.route("/alumnos", methods=["GET"])
@@ -199,4 +198,4 @@ def eliminar_alumnos(codigo):
         return jsonify({"mensaje": "Alumno no encontrado"}), 404
 
 if __name__ == "__main__":
-    app.run(debug=True
+    app.run(debug=True)
