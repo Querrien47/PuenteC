@@ -22,8 +22,6 @@ class Registro:
     # Constructor de la clase
     def __init__(self, host, user, password, database):
         self.conn = mysql.connector.connect(
-
-
             host=host,
             user=user,
             password=password,
@@ -41,13 +39,12 @@ class Registro:
             else:
                 raise err
             
-    
         self.cursor.execute('''CREATE TABLE IF NOT EXISTS alumnos (
             codigo INT AUTO_INCREMENT PRIMARY KEY,
-            alumno VARCHAR (40) NOT NULL,
-            dni INT (8) NOT NULL
-            clase INT (1) NOT NULL,
-            nivel VARCHAR (1) NOT NULL,
+            alumno VARCHAR(40) NOT NULL,
+            dni INT(8) NOT NULL,
+            clase INT(1) NOT NULL,
+            nivel VARCHAR(1) NOT NULL,
             imagen_url VARCHAR(40))''' )
         self.conn.commit()
         
@@ -60,7 +57,7 @@ class Registro:
         alumnos = self.cursor.fetchall()
         return alumnos
     
-    def consultar_alumnos(self, codigo):
+    def consultar_alumno(self, codigo):
         # Consultamos un alumno a partir de su código
         self.cursor.execute(f"SELECT * FROM alumnos WHERE codigo = {codigo}")
         return self.cursor.fetchone()
@@ -69,28 +66,26 @@ class Registro:
         # Mostramos los datos de un alumno a partir de su código
         alumno = self.consultar_alumno(codigo)
         if alumno:
-            
             print(f"Código: {alumno['codigo']}")
             print(f"Nombre y Apellido: {alumno['alumno']}")
-            print(f"Dni:{alumno['dniAlumno']}")
-            print(f"Clase: {alumno['claseAlumno']}")
-            print(f"Nivel: {alumno['nivelAlumno']}")
-            print(f"Imagen: {alumno['imagen_url_Alumno']}")
-            
+            print(f"Dni: {alumno['dni']}")
+            print(f"Clase: {alumno['clase']}")
+            print(f"Nivel: {alumno['nivel']}")
+            print(f"Imagen: {alumno['imagen_url']}")
         else:
             print("Alumno no encontrado")
 
     # Agregar un alumno 
     def agregar_alumno(self, alumno, dni, clase, nivel, imagen_url):
-        sql = "INSERT INTO alumnos (alumno,dniAlumno, claseAlumno, nivelAlumno, imagen_url_Alumno) VALUES (%s, %s, %s, %s, %s)"
+        sql = "INSERT INTO alumnos (alumno, dni, clase, nivel, imagen_url) VALUES (%s, %s, %s, %s, %s)"
         valores = (alumno, dni, clase, nivel, imagen_url)
         self.cursor.execute(sql, valores)
-        self.conn.commit
+        self.conn.commit()
         return self.cursor.lastrowid
 
-    def modificar_alumno(self, nuevo_codigo, nuevo_alumno, nuevo_dni, nueva_clase, nuevo_nivel, nueva_imagen_url):
-        sql = "UPDATE alumnos SET alumno = %s, dniAlumno = %s, claseAlumno = %s, nivelAlumno = %s, imagen_url_Alumno = %s WHERE codigo = %s"
-        valores = (nuevo_codigo, nuevo_alumno, nuevo_dni, nueva_clase, nuevo_nivel, nueva_imagen_url)
+    def modificar_alumno(self, codigo, nuevo_alumno, nuevo_dni, nueva_clase, nuevo_nivel, nueva_imagen_url):
+        sql = "UPDATE alumnos SET alumno = %s, dni = %s, clase = %s, nivel = %s, imagen_url = %s WHERE codigo = %s"
+        valores = (nuevo_alumno, nuevo_dni, nueva_clase, nuevo_nivel, nueva_imagen_url, codigo)
         self.cursor.execute(sql, valores)
         self.conn.commit()
         return self.cursor.rowcount > 0
@@ -122,70 +117,68 @@ def mostrar_alumnos(codigo):
     if alumno:
         return jsonify(alumno)
     else:
-        return "Alumno no encontrado", 
+        return "Alumno no encontrado", 404
 
 @app.route("/alumnos", methods=["POST"])
 def agregar_alumno():
-    #Recojo los datos del form
+    # Recojo los datos del form
     alumno = request.form['alumno']
-    dni = request.form['dniAlumno']
-    clase = request.form['claseAlumno']
-    nivel = request.form['nivelAlumno']
-    nombre_imagen = request.files['imagen']
+    dni = request.form['dni']
+    clase = request.form['clase']
+    nivel = request.form['nivel']
+    imagen = request.files['imagen']
     
-
     # Genero el nombre de la imagen
-    nombre_imagen = secure_filename(nombre_imagen.filename)
-    nombre_base, extension = os.path.splitext(nombre_imagen) 
-    nombre_imagen = f"{nombre_base}_{int(time.time())}{extension}" 
-
-    nuevo_codigo = registro.agregar_alumno (alumno, dni, clase, nivel, nombre_imagen )
+    nombre_imagen = secure_filename(imagen.filename)
+    nombre_base, extension = os.path.splitext(nombre_imagen)
+    nombre_imagen = f"{nombre_base}_{int(time.time())}{extension}"
+    
+    nuevo_codigo = registro.agregar_alumno(alumno, dni, clase, nivel, nombre_imagen)
     if nuevo_codigo:    
-        nombre_imagen.save(os.path.join(ruta_destino, nombre_imagen))
+        imagen.save(os.path.join(ruta_destino, nombre_imagen))
         return jsonify({"mensaje": "Alumno agregado correctamente.", "codigo": nuevo_codigo, "imagen": nombre_imagen})
     else:
         return jsonify({"mensaje": "Error al agregar el alumno."})
 
 @app.route("/alumnos/<int:codigo>", methods=["PUT"])
 def modificar_alumno(codigo):
-    #Se recuperan los nuevos datos del formulario
+    # Se recuperan los nuevos datos del formulario
     nuevo_alumno = request.form.get("alumno")
-    nuevo_dni = request.form.get("dniAlumno")
-    nueva_clase = request.form.get("claseAlumno")
-    nuevo_nivel = request.form.get("nivelAlumno")
-    nueva_imagen = request.files.get('imagen')
+    nuevo_dni = request.form.get("dni")
+    nueva_clase = request.form.get("clase")
+    nuevo_nivel = request.form.get("nivel")
     
     # Verifica si se proporcionó una nueva imagen
     if 'imagen' in request.files:
         imagen = request.files['imagen']
         # Procesamiento de la imagen
-        nombre_imagen = secure_filename(imagen.filename) 
-        nombre_base, extension = os.path.splitext(nombre_imagen) 
-        nombre_imagen = f"{nombre_base}_{int(time.time())}{extension}" 
-
+        nombre_imagen = secure_filename(imagen.filename)
+        nombre_base, extension = os.path.splitext(nombre_imagen)
+        nombre_imagen = f"{nombre_base}_{int(time.time())}{extension}"
+        
         # Guardar la imagen en el servidor
         imagen.save(os.path.join(ruta_destino, nombre_imagen))
         
         # Busco el producto guardado
         alumno = registro.consultar_alumno(codigo)
-        if alumno: # Si existe el producto...
+        if alumno:  # Si existe el producto...
             imagen_vieja = alumno["imagen_url"]
             # Armo la ruta a la imagen
             ruta_imagen = os.path.join(ruta_destino, imagen_vieja)
-
+            
             # Y si existe la borro.
             if os.path.exists(ruta_imagen):
                 os.remove(ruta_imagen)
     else:     
-       alumno = registro.consultar_alumno(codigo)
-    if alumno:
+        alumno = registro.consultar_alumno(codigo)
+        if alumno:
             nombre_imagen = alumno["imagen_url"]
-
-   # Se llama al método modificar_alumno pasando el codigo del alumno y los nuevos datos.
-    if registro.modificar_alumno(codigo, nuevo_alumno, nuevo_dni, nueva_clase, nuevo_nivel, nueva_imagen):
-        return jsonify({"mensaje": "Alumno modificado"}), 
+    
+    # Se llama al método modificar_alumno pasando el codigo del alumno y los nuevos datos.
+    if registro.modificar_alumno(codigo, nuevo_alumno, nuevo_dni, nueva_clase, nuevo_nivel, nombre_imagen):
+        return jsonify({"mensaje": "Alumno modificado"})
     else:
-        return jsonify({"mensaje": "Alumno no encontrado"}), 
+        return jsonify({"mensaje": "Alumno no encontrado"}), 404
 
 @app.route("/alumnos/<int:codigo>", methods=["DELETE"])
 def eliminar_alumnos(codigo):
@@ -199,19 +192,11 @@ def eliminar_alumnos(codigo):
 
         # Luego, elimina el alumno del registro
         if registro.eliminar_alumno(codigo):
-            return jsonify({"mensaje": "Alumno dado de baja"}),
+            return jsonify({"mensaje": "Alumno dado de baja"})
         else:
-            return jsonify({"mensaje": "Error, algo salio mal"}),
+            return jsonify({"mensaje": "Error, algo salio mal"}), 500
     else:
-        return jsonify({"mensaje": "Alumno no encontrado"}), 
+        return jsonify({"mensaje": "Alumno no encontrado"}), 404
 
 if __name__ == "__main__":
-    app.run(debug=True)
-
-
-
-
-
-
-
-   
+    app.run(debug=True
