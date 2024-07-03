@@ -90,7 +90,7 @@ class Registro:
 
     def modificar_alumno(self, nuevo_codigo, nuevo_alumno, nuevo_dni, nueva_clase, nuevo_nivel, nueva_imagen_url):
         sql = "UPDATE alumnos SET alumno = %s, dniAlumno = %s, claseAlumno = %s, nivelAlumno = %s, imagen_url_Alumno = %s WHERE codigo = %s"
-        valores = (nuevo_codigo, nuevo_alumno, nuevo_dniAlumno, nueva_claseAlumno, nuevo_nivelAlumno, nueva_imagen_url_Alumno)
+        valores = (nuevo_codigo, nuevo_alumno, nuevo_dni, nueva_clase, nuevo_nivel, nueva_imagen_url)
         self.cursor.execute(sql, valores)
         self.conn.commit()
         return self.cursor.rowcount > 0
