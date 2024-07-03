@@ -40,9 +40,6 @@
                 <label for="dniModificar">DNI:</label>
                 <input type="number" id="dniModificar" required><br>
 
-                <label for="claseModificar">Sala/Grado/Año<option value=""></option><optgroup></optgroup><optgroup></optgroup>:</label>
-                <input type="number" step="0.01" id="claseModificar" required><br>
-
                 <!-- Imagen actual del alumno - Debe comentarse al subirse al servidor-->
                 <img id="imagen-actual" style="max-width: 200px; display: none;">               
                 <!-- Vista previa de la nueva imagen seleccionada -->
@@ -54,7 +51,7 @@
 
                 <br>
                 <label for="nivelModificar">Nivel:</label>
-                <input type="number" id="nivelModificar" required><br>
+                <input type="text" id="nivelModificar" required><br>
 
                 <button type="submit">Guardar Cambios</button>
                 <a href="modificaciones.html">Cancelar</a>
@@ -73,7 +70,6 @@
         let codigo = '';
         let alumno = '';
         let dni = '';
-        let clase = '';
         let nivel = '';
         let imagen_url = '';
         let imagenSeleccionada = null;
@@ -99,7 +95,6 @@
                 .then(data => {
                     alumno = data.alumno;
                     dni = data.dni;
-                    clase = data.clase;
                     nivel = data.nivel;
                     imagen_url = data.imagen_url;
                     mostrarDatosAlumno = true; //Activa la vista del segundo formulario
@@ -115,7 +110,6 @@
             if (mostrarDatosAlumno) {
                 document.getElementById('alumnoModificar').value = alumno;
                 document.getElementById('dniModificar').value = dni;
-                document.getElementById('claseModificar').value = clase;
                 document.getElementById('nivelModificar').value = nivel;
 
                 const imagenActual = document.getElementById('imagen-actual');
@@ -154,7 +148,6 @@
             formData.append('codigo', codigo);
             formData.append('alumno', document.getElementById('alumnoModificar').value);
             formData.append('dni', document.getElementById('dniModificar').value);
-            formData.append('clase', document.getElementById('claseModificar').value);
             formData.append('nivel', document.getElementById('nivelModificar').value);
 
             // Si se ha seleccionado una imagen nueva, la añade al formData. 
@@ -188,7 +181,6 @@
             document.getElementById('codigo').value = '';
             document.getElementById('alumnoModificar').value = '';
             document.getElementById('dniModificar').value = '';
-            document.getElementById('claseModificar').value = '';
             document.getElementById('nivelModificar').value = '';
             document.getElementById('nuevaImagen').value = '';
 
@@ -201,7 +193,6 @@
             codigo = '';
             alumno = '';
             dni = '';
-            clase = '';
             nivel = '';
             imagen_url = '';
             imagenSeleccionada = null;
