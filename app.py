@@ -43,7 +43,7 @@ class Registro:
             codigo INT AUTO_INCREMENT PRIMARY KEY,
             alumno VARCHAR(40) NOT NULL,
             dni INT(8) NOT NULL,
-            nivel VARCHAR(1) NOT NULL,
+            nivel VARCHAR(10) NOT NULL,
             imagen_url VARCHAR(40))''' )
         self.conn.commit()
         
