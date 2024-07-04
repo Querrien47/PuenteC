@@ -26,7 +26,8 @@
             <tr>
                 <th>Código</th>
                 <th>Nombre y Apellido</th>
-                <th>DNI</th>                
+                <th>DNI</th> 
+                <th aling="rigth">Clase<th/>
                 <th>Imagen</th>
                 <th align="right">Nivel</th>
             </tr>
@@ -67,6 +68,7 @@
                     fila.innerHTML = '<td>' + alumno.codigo + '</td>' +
                         '<td>' + alumno.alumno + '</td>' +
                         '<td align="right">' + alumno.dni + '</td>' +
+                        '<td aling="rigth">' + alumno.clase + '<td/>' +
                         // Mostrar miniatura de la imagen
                         '<td><img src="https://querrien.pythonanywhere.com/static/imagenes/' + alumno.imagen_url + '" alt="Imagen del alumno" style="width: 100px;"></td>' +
                         '<td align="right">' + alumno.nivel + '</td>';
