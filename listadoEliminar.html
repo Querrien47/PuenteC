@@ -78,10 +78,10 @@ roductos
         function eliminarAlumno(codigo) {
             // Se muestra un diálogo de confirmación. Si el usuario confirma, se realiza una solicitud DELETE al servidor a través de fetch(URL + 'alumnos/${codigo}', {method: 'DELETE' }).
             if (confirm('¿Está seguro de que quiere dar de baja al alumno?')) {
-                fetch(URL + `alumno/${codigo}`, { method: 'DELETE' })
+                fetch(URL + 'alumno/${codigo}', { method: 'DELETE' })
                     .then(response => {
                         if (response.ok) {
-                            // Si es exitosa (response.ok), elimina elalumno y da mensaje de ok.
+                            // Si es exitosa (response.ok), elimina el alumno y da mensaje de ok.
                             obtenerAlumno(); // Vuelve a obtener la lista de alumnos para actualizar la tabla.
                             alert('Alumno dado de baja correctamente.');
                         }
