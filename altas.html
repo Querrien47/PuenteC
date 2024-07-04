@@ -30,6 +30,9 @@
         <label for="dniAlumno">DNI:</label>
         <input type="number" id="dniAlumno" name="dni" required><br>
 
+        <label for="claseAlumno">Sala/Grado/Año:</label>
+        <input type="number" id="claseAlumno" name="clase" required><br>
+
         <label for="imagenAlumno">Fotografía:</label>
         <input type="file" id="imagenAlumno" name="imagen"><br><br>
 
@@ -91,6 +94,7 @@
                 .finally(function () {
                     document.getElementById('alumno').value = "";
                     document.getElementById('dniAlumno').value = "";
+                    document.getElementById('claseAlumno').value = "";
                     document.getElementById('imagenAlumno').value = "";
                     document.getElementById('nivelAlumno').value = "";
                 });
